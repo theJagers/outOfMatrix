@@ -31,18 +31,18 @@
                                 <navigationItem title="Title" id="wAB-g0-pkY">
                                     <barButtonItem key="rightBarButtonItem" title="Add" id="BBX-1R-daR">
                                         <connections>
-                                            <segue destination="bix-Nw-3yB" kind="show" id="4bb-d2-mFz"/>
+                                            <segue destination="bix-Nw-3yB" kind="show" identifier="NewGoal" id="4bb-d2-mFz"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="2PS-qX-0bO">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="54" id="2PS-qX-0bO">
+                                <rect key="frame" x="0.0" y="72" width="375" height="54"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2PS-qX-0bO" id="KwV-Ks-jGh">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -55,7 +55,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jqc-6F-jSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="57" y="-137"/>
+            <point key="canvasLocation" x="56.799999999999997" y="-137.18140929535232"/>
         </scene>
     </scenes>
 </document>
