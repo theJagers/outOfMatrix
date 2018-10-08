@@ -22,6 +22,8 @@
 		03BCBE8721679ED800DA505B /* ViewControllerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BCBE8621679ED800DA505B /* ViewControllerInfo.swift */; };
 		03BCBE8921679EF200DA505B /* ViewControllerNewGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BCBE8821679EF100DA505B /* ViewControllerNewGoal.swift */; };
 		03BCBE8B21679F0600DA505B /* TableViewControllerGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BCBE8A21679F0600DA505B /* TableViewControllerGoal.swift */; };
+		26DBAE60216B995C00B96DAA /* ViewControllerNewWeeklyGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DBAE5F216B995C00B96DAA /* ViewControllerNewWeeklyGoal.swift */; };
+		26DBAE62216B996E00B96DAA /* ViewControllerNewMonthlyGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DBAE61216B996E00B96DAA /* ViewControllerNewMonthlyGoal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		03BCBE8621679ED800DA505B /* ViewControllerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInfo.swift; sourceTree = "<group>"; };
 		03BCBE8821679EF100DA505B /* ViewControllerNewGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerNewGoal.swift; sourceTree = "<group>"; };
 		03BCBE8A21679F0600DA505B /* TableViewControllerGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerGoal.swift; sourceTree = "<group>"; };
+		26DBAE5F216B995C00B96DAA /* ViewControllerNewWeeklyGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerNewWeeklyGoal.swift; sourceTree = "<group>"; };
+		26DBAE61216B996E00B96DAA /* ViewControllerNewMonthlyGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerNewMonthlyGoal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,8 @@
 				03BCBE8421679ECC00DA505B /* ViewControllerMe.swift */,
 				03BCBE8621679ED800DA505B /* ViewControllerInfo.swift */,
 				03BCBE8821679EF100DA505B /* ViewControllerNewGoal.swift */,
+				26DBAE5F216B995C00B96DAA /* ViewControllerNewWeeklyGoal.swift */,
+				26DBAE61216B996E00B96DAA /* ViewControllerNewMonthlyGoal.swift */,
 				03BCBE8A21679F0600DA505B /* TableViewControllerGoal.swift */,
 			);
 			path = controllers;
@@ -307,6 +313,8 @@
 				03BCBE8521679ECC00DA505B /* ViewControllerMe.swift in Sources */,
 				03BCBE8B21679F0600DA505B /* TableViewControllerGoal.swift in Sources */,
 				03BCBE8921679EF200DA505B /* ViewControllerNewGoal.swift in Sources */,
+				26DBAE62216B996E00B96DAA /* ViewControllerNewMonthlyGoal.swift in Sources */,
+				26DBAE60216B995C00B96DAA /* ViewControllerNewWeeklyGoal.swift in Sources */,
 				03BCBE8721679ED800DA505B /* ViewControllerInfo.swift in Sources */,
 				0346D3E8216771B70044D522 /* AppDelegate.swift in Sources */,
 			);
