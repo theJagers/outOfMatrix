@@ -18,6 +18,7 @@ class ViewControllerInfo: UIViewController {
     var nomeArticolo: String?
     
     //titolo dell'articolo che sarà sulla label
+
     @IBOutlet weak var titoloArticolo: UILabel!
     
     //descrizione (contenuto) dell'articolo che sarà nel textView
