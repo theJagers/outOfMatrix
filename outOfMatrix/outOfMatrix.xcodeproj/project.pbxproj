@@ -17,12 +17,11 @@
 		0346D41D216777950044D522 /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0346D41C216777950044D522 /* Me.storyboard */; };
 		0346D41F216777AC0044D522 /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0346D41E216777AC0044D522 /* Info.storyboard */; };
 		0346D421216777BE0044D522 /* GoalList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0346D420216777BE0044D522 /* GoalList.storyboard */; };
+		03BCBE8321679C1700DA505B /* NewGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BCBE8221679C1700DA505B /* NewGoal.storyboard */; };
 		03BCBE8521679ECC00DA505B /* ViewControllerMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BCBE8421679ECC00DA505B /* ViewControllerMe.swift */; };
 		03BCBE8721679ED800DA505B /* ViewControllerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BCBE8621679ED800DA505B /* ViewControllerInfo.swift */; };
 		03BCBE8921679EF200DA505B /* ViewControllerNewGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BCBE8821679EF100DA505B /* ViewControllerNewGoal.swift */; };
 		03BCBE8B21679F0600DA505B /* TableViewControllerGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BCBE8A21679F0600DA505B /* TableViewControllerGoal.swift */; };
-		30F76FFA216CA34D00057BFF /* ViewControllerWelcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F76FF9216CA34D00057BFF /* ViewControllerWelcome.swift */; };
-		26231EA2216CA2FC005292AF /* NewGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26231EA1216CA2FC005292AF /* NewGoal.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,12 +58,11 @@
 		0346D41C216777950044D522 /* Me.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
 		0346D41E216777AC0044D522 /* Info.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
 		0346D420216777BE0044D522 /* GoalList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GoalList.storyboard; sourceTree = "<group>"; };
+		03BCBE8221679C1700DA505B /* NewGoal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewGoal.storyboard; sourceTree = "<group>"; };
 		03BCBE8421679ECC00DA505B /* ViewControllerMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMe.swift; sourceTree = "<group>"; };
 		03BCBE8621679ED800DA505B /* ViewControllerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInfo.swift; sourceTree = "<group>"; };
 		03BCBE8821679EF100DA505B /* ViewControllerNewGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerNewGoal.swift; sourceTree = "<group>"; };
 		03BCBE8A21679F0600DA505B /* TableViewControllerGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerGoal.swift; sourceTree = "<group>"; };
-		30F76FF9216CA34D00057BFF /* ViewControllerWelcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerWelcome.swift; sourceTree = "<group>"; };
-		26231EA1216CA2FC005292AF /* NewGoal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewGoal.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +149,7 @@
 				0346D41C216777950044D522 /* Me.storyboard */,
 				0346D41E216777AC0044D522 /* Info.storyboard */,
 				0346D420216777BE0044D522 /* GoalList.storyboard */,
-				26231EA1216CA2FC005292AF /* NewGoal.storyboard */,
+				03BCBE8221679C1700DA505B /* NewGoal.storyboard */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -159,7 +157,6 @@
 		0346D419216772320044D522 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				30F76FF9216CA34D00057BFF /* ViewControllerWelcome.swift */,
 				03BCBE8421679ECC00DA505B /* ViewControllerMe.swift */,
 				03BCBE8621679ED800DA505B /* ViewControllerInfo.swift */,
 				03BCBE8821679EF100DA505B /* ViewControllerNewGoal.swift */,
@@ -276,7 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0346D3F5216771B80044D522 /* LaunchScreen.storyboard in Resources */,
-				26231EA2216CA2FC005292AF /* NewGoal.storyboard in Resources */,
+				03BCBE8321679C1700DA505B /* NewGoal.storyboard in Resources */,
 				0346D3F2216771B80044D522 /* Assets.xcassets in Resources */,
 				0346D41D216777950044D522 /* Me.storyboard in Resources */,
 				0346D421216777BE0044D522 /* GoalList.storyboard in Resources */,
@@ -310,7 +307,6 @@
 				03BCBE8521679ECC00DA505B /* ViewControllerMe.swift in Sources */,
 				03BCBE8B21679F0600DA505B /* TableViewControllerGoal.swift in Sources */,
 				03BCBE8921679EF200DA505B /* ViewControllerNewGoal.swift in Sources */,
-				30F76FFA216CA34D00057BFF /* ViewControllerWelcome.swift in Sources */,
 				03BCBE8721679ED800DA505B /* ViewControllerInfo.swift in Sources */,
 				0346D3E8216771B70044D522 /* AppDelegate.swift in Sources */,
 			);
@@ -489,7 +485,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T5QU5MV643;
 				INFOPLIST_FILE = outOfMatrix/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.unisannio.the.jagers.outOfMatrix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -505,7 +500,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T5QU5MV643;
 				INFOPLIST_FILE = outOfMatrix/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.unisannio.the.jagers.outOfMatrix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
