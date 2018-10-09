@@ -12,6 +12,12 @@ class ViewControllerInfo: UIViewController {
     
     //nome identificativo dell'articolo
     var nome: String?
+    
+    //titolo dell'articolo che sarà sulla label
+    @IBOutlet weak var titoloArticolo: UILabel!
+    
+    //descrizione (contenuto) dell'articolo che sarà nel textView
+    @IBOutlet weak var descrizioneArticolo: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
