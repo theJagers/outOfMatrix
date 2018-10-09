@@ -11,7 +11,7 @@ import UIKit
 class ViewControllerInfo: UIViewController {
     
     //nome identificativo dell'articolo
-    var nome: String?
+    var nomeArticolo: String?
     
     //titolo dell'articolo che sarà sulla label
     @IBOutlet weak var titoloArticolo: UILabel!
@@ -21,6 +21,17 @@ class ViewControllerInfo: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        titoloArticolo.text = nomeArticolo
+        
+        switch(nomeArticolo) {
+        case "Il più grande alleato":
+            descrizioneArticolo.text = "Il più grande alleato contro la tua dipendenza sei tu!"
+        case "Qualcosa":
+            descrizioneArticolo.text = "Qualcosa"
+        default:
+            descrizioneArticolo.text = "Niente..."
+            
+        }
 
         // Do any additional setup after loading the view.
     }
