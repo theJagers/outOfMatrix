@@ -1,19 +1,27 @@
 //
-//  ViewControllerNewWeeklyGoal.swift
+//  ViewControllerWelcome.swift
 //  outOfMatrix
 //
-//  Created by garzoneroberto on 08/10/18.
+//  Created by peronecolombamiriana on 09/10/2018.
 //  Copyright © 2018 TheJagers. All rights reserved.
 //
 
 import UIKit
 
-class ViewControllerNewWeeklyGoal: UIViewController {
+class ViewControllerWelcome: UIViewController {
 
+    
+    @IBOutlet weak var labelSubTitle: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        labelSubTitle.text = "This app helps you overcome your addiction,\n have a good time"
         // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
 
@@ -22,7 +30,7 @@ class ViewControllerNewWeeklyGoal: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
+        // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
     */
