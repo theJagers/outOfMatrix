@@ -9,14 +9,15 @@
 import UIKit
 
 class ViewControllerNewGoal: UIViewController {
+
    
     @IBOutlet weak var cambia: UISegmentedControl!
     @IBOutlet weak var rerollLabel: UILabel!
     @IBOutlet weak var newgoal: UILabel!
     @IBOutlet weak var reroll: UIButton!
     
-    let roll1 = UIImage(named: "re-roll")
-    
+    let roll1 = UIImage(named: "re-roll")    
+
     var goalsd = ["learn a new song", "spend time with your family", "have a coffe with a friend", "do 30 miuntes of sport", "run for 500 meters"]
     
     var goalsw = ["leggi una rivista", "scrivi una lettera ad un tuo amico", "segui un incontro del tuo sport preferito in tv con un amico", "invita un amico per ascoltare insieme la compilation del vostro gruppo preferisto"]
@@ -32,7 +33,6 @@ class ViewControllerNewGoal: UIViewController {
             random = Int(arc4random()) % goalsd.count
             newgoal.text = goalsd[random]
             rerollLabel.text = "You can generate another goal. Just once"
-            
         }
         if cambia.selectedSegmentIndex == 1 {
             numero = 1
@@ -63,12 +63,14 @@ class ViewControllerNewGoal: UIViewController {
             newgoal.text = goalsm[random]
         }
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         reroll.setBackgroundImage(roll1, for: .normal)
+
         random = Int(arc4random()) % goalsd.count
         newgoal.text = goalsd[random]
     }

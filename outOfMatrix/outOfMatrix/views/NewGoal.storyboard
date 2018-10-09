@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6Nl-6D-asi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o21-3k-Qif">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,34 +9,32 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Set Your Goal-->
-        <scene sceneID="J0t-GH-iVe">
+        <!--Navigation Controller-->
+        <scene sceneID="b2C-C9-s6J">
             <objects>
-                <viewController storyboardIdentifier="NewGoalID" id="quB-sc-zMe" customClass="ViewControllerNewGoal" customModule="outOfMatrix" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Gv6-UO-o7D">
+                <navigationController id="o21-3k-Qif" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Thc-lL-nY2">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Cyv-bo-dj4" kind="relationship" relationship="rootViewController" id="ypv-nL-Tp9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eWc-um-QJ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-543" y="139"/>
+        </scene>
+        <!--View Controller New Goal-->
+        <scene sceneID="tOa-YG-r0K">
+            <objects>
+                <viewController storyboardIdentifier="NewGoalID" id="Cyv-bo-dj4" customClass="ViewControllerNewGoal" customModule="outOfMatrix" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0w9-ZR-7FZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="38" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Srt-6H-z2W">
-                                <rect key="frame" x="33" y="168" width="309" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="POr-ai-qaI">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eds-9p-Lwh">
-                                <rect key="frame" x="137" y="510" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="reroll:" destination="quB-sc-zMe" eventType="touchUpInside" id="ysQ-hJ-npq"/>
-                                </connections>
-                            </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9Qr-qj-VWj">
-                                <rect key="frame" x="16" y="64" width="343" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gno-Pc-L9Q">
+                                <rect key="frame" x="16" y="125" width="343" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Daily"/>
@@ -44,64 +42,66 @@
                                     <segment title="Monthly"/>
                                 </segments>
                                 <connections>
-                                    <action selector="cambiaValore:" destination="quB-sc-zMe" eventType="valueChanged" id="IW4-tS-8y5"/>
+                                    <action selector="cambiaValore:" destination="Cyv-bo-dj4" eventType="valueChanged" id="gPx-AH-lfH"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You can generate another goal. Just once" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baN-Gk-6yN">
-                                <rect key="frame" x="63" y="453" width="248" height="49"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mR-I1-7tG">
+                                <rect key="frame" x="16" y="195" width="343" height="171"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You can generate another goal. Just once" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jcz-r1-dZO">
+                                <rect key="frame" x="64" y="449" width="246" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccg-My-Z5z">
+                                <rect key="frame" x="137" y="528" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="reroll:" destination="Cyv-bo-dj4" eventType="touchUpInside" id="czo-gh-nAV"/>
+                                </connections>
+                            </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kFI-9X-gMa">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Select a goal" leftItemsSupplementBackButton="YES" id="zFE-tF-Y5L">
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="a4c-Xv-c1r">
+                                            <connections>
+                                                <segue destination="LDk-1f-brn" kind="show" id="J6a-qi-72D"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <gestureRecognizers/>
-                        <viewLayoutGuide key="safeArea" id="f7X-az-7Hu"/>
+                        <viewLayoutGuide key="safeArea" id="ltg-is-qBl"/>
                     </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Set Your Goal" id="jYV-GX-1kY">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="WBF-sR-4qT">
-                            <connections>
-                                <segue destination="z64-fu-nqN" kind="show" id="wwk-3o-fKu"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationItem key="navigationItem" id="zl4-yG-SRY"/>
                     <connections>
-                        <outlet property="cambia" destination="9Qr-qj-VWj" id="wwH-53-WCs"/>
-                        <outlet property="newgoal" destination="Srt-6H-z2W" id="Xbk-SM-pOe"/>
-                        <outlet property="reroll" destination="Eds-9p-Lwh" id="9Kt-jH-R1L"/>
-                        <outlet property="rerollLabel" destination="baN-Gk-6yN" id="gmT-5D-jOS"/>
+                        <outlet property="cambia" destination="gno-Pc-L9Q" id="LXG-Lp-ybC"/>
+                        <outlet property="newgoal" destination="7mR-I1-7tG" id="GYh-wM-GhV"/>
+                        <outlet property="reroll" destination="Ccg-My-Z5z" id="YdQ-2W-FS4"/>
+                        <outlet property="rerollLabel" destination="Jcz-r1-dZO" id="vex-s5-oNE"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XTj-sO-PwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lxP-ll-fHn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="436" y="186.65667166416793"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="dPH-92-agy">
-            <objects>
-                <navigationController id="6Nl-6D-asi" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4ME-Gx-a6B">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="quB-sc-zMe" kind="relationship" relationship="rootViewController" id="ajU-0j-2MA"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KZo-KA-71x" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-398" y="187"/>
+            <point key="canvasLocation" x="328.80000000000001" y="138.98050974512745"/>
         </scene>
         <!--goalListID-->
-        <scene sceneID="OTm-Kr-G5O">
+        <scene sceneID="acv-ER-Eeq">
             <objects>
-                <viewControllerPlaceholder storyboardName="GoalList" referencedIdentifier="goalListID" id="z64-fu-nqN" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OQa-co-6dS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="goalListID" storyboardName="GoalList" referencedIdentifier="goalListID" id="LDk-1f-brn" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oyn-zO-9lk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1134" y="186"/>
+            <point key="canvasLocation" x="975" y="139"/>
         </scene>
     </scenes>
 </document>
