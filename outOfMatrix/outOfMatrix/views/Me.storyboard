@@ -114,6 +114,7 @@
                         <outlet property="pointD" destination="h3G-xB-rpt" id="t6V-1O-38K"/>
                         <outlet property="pointM" destination="yIt-O9-Gqe" id="9z5-bM-CYQ"/>
                         <outlet property="pointW" destination="F9V-CD-44t" id="jz2-O1-bdZ"/>
+                        <outlet property="profileImage" destination="NFN-QC-qmv" id="7Sh-GV-PKO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HDa-Hp-BCz" userLabel="First Responder" sceneMemberID="firstResponder"/>
