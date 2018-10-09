@@ -14,7 +14,7 @@ class TableViewControllerGoal: UITableViewController {
     
     var interestImage = ["leggere.jpeg","scirvere.jpeg","cucinare.jpeg","praticareMusica.jpeg","ascoltareMusica.jpeg","praticareSport.jpeg","seguireSport.jpeg","animali.jpeg","teatro.jpeg","recitazione.jpeg","cinema.jpeg","natura.jpeg","benessere.jpeg","socialita.jpeg","volontariato.jpeg","tecnologia.jpeg","spiritualita.jpeg","viaggiare.jpeg"]
     
-    var userInterests: [String]
+    var userInterests: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
