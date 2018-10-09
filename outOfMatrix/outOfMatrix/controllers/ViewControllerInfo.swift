@@ -9,9 +9,29 @@
 import UIKit
 
 class ViewControllerInfo: UIViewController {
+    
+    //nome identificativo dell'articolo
+    var nomeArticolo: String?
+    
+    //titolo dell'articolo che sarà sulla label
+    @IBOutlet weak var titoloArticolo: UILabel!
+    
+    //descrizione (contenuto) dell'articolo che sarà nel textView
+    @IBOutlet weak var descrizioneArticolo: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        titoloArticolo.text = nomeArticolo
+        
+        switch(nomeArticolo) {
+        case "Il più grande alleato":
+            descrizioneArticolo.text = "Il più grande alleato contro la tua dipendenza sei tu!"
+        case "Qualcosa":
+            descrizioneArticolo.text = "Qualcosa"
+        default:
+            descrizioneArticolo.text = "Niente..."
+            
+        }
 
         // Do any additional setup after loading the view.
     }
