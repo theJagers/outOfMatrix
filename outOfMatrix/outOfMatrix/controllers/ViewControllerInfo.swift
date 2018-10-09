@@ -12,7 +12,8 @@ import UIKit
 class ViewControllerInfo: UIViewController {
     
     //lista dei nomi di tutti gli articoli
-    let arrayArticoli = ["ll più grande alleato", "Qualcosa"]
+    var arrayArticoli = ["ll più grande alleato", "Qualcosa"]
+    var descrizioneArticoli = ["Il più grande alleato contro la tua dipendenza sei tu!", "Qualcosa...", "Niente..."]
     
     //nome identificativo dell'articolo
     var nomeArticolo: String?
@@ -25,12 +26,12 @@ class ViewControllerInfo: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        selezionaArticolo()
+//        nomeArticolo = selezionaArticolo()
         
-        nomeArticolo = selezionaArticolo()
+//        titoloArticolo.text = nomeArticolo
         
-        titoloArticolo.text = nomeArticolo
-        
-        switch(nomeArticolo) {
+/*        switch(nomeArticolo) {
         case "Il più grande alleato":
             descrizioneArticolo.text = "Il più grande alleato contro la tua dipendenza sei tu!"
         case "Qualcosa":
@@ -38,7 +39,7 @@ class ViewControllerInfo: UIViewController {
         default:
             descrizioneArticolo.text = "Niente..."
             
-        }
+        } */
 
         // Do any additional setup after loading the view.
     }
@@ -47,11 +48,16 @@ class ViewControllerInfo: UIViewController {
     //questa variabile serve solo per selezionare random l'articolo che verrà visualizzato
     var random: Int = 0
     
-    func selezionaArticolo() -> String {
+/*    func selezionaArticolo() -> String {
         random = Int(arc4random()) % arrayArticoli.count
         nomeArticolo = arrayArticoli[random]
-        
         return nomeArticolo!
+    }*/
+    
+    func selezionaArticolo() {
+        random = Int(arc4random()) % arrayArticoli.count
+        titoloArticolo.text = arrayArticoli[random]
+        descrizioneArticolo.text = descrizioneArticoli[random]
     }
     
 

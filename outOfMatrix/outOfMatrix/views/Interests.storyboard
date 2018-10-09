@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bDl-Rm-EQr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Interests-->
         <scene sceneID="nsX-FP-ibD">
             <objects>
-                <tableViewController id="bDl-Rm-EQr" customClass="Interests" customModule="outOfMatrix" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="interestsID" id="bDl-Rm-EQr" customClass="Interests" customModule="outOfMatrix" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aG4-ZA-jmH" customClass="Interests" customModule="outOfMatrix" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,11 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem title="Choose Your Interests" id="yfl-QT-ZTv">
-                                    <barButtonItem key="rightBarButtonItem" title="Add" id="clK-DY-nJx"/>
+                                    <barButtonItem key="rightBarButtonItem" title="Add" id="clK-DY-nJx">
+                                        <connections>
+                                            <segue destination="tcJ-ba-ch4" kind="show" id="KJZ-sY-qdl"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </navigationItem>
                             </items>
                         </navigationBar>
@@ -45,6 +49,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SEj-lZ-pdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="175" y="155"/>
+        </scene>
+        <!--goalListID-->
+        <scene sceneID="RVj-C9-hfI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GoalList" referencedIdentifier="goalListID" id="tcJ-ba-ch4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="84r-oc-nWt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="860" y="39"/>
         </scene>
     </scenes>
 </document>

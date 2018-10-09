@@ -70,7 +70,6 @@ class ViewControllerNewGoal: UIViewController {
         
         // Do any additional setup after loading the view.
         reroll.setBackgroundImage(roll1, for: .normal)
-
         random = Int(arc4random()) % goalsd.count
         newgoal.text = goalsd[random]
     }
