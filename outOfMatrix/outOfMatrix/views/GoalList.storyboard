@@ -32,6 +32,7 @@
                                 <navigationItem title="Choose Your Interests" id="wAB-g0-pkY">
                                     <barButtonItem key="rightBarButtonItem" title="Add" id="BBX-1R-daR">
                                         <connections>
+                                            <action selector="addInterest:" destination="MpQ-0X-iWU" id="dme-Tx-Xef"/>
                                             <segue destination="bix-Nw-3yB" kind="show" identifier="NewGoal" id="4bb-d2-mFz"/>
                                         </connections>
                                     </barButtonItem>
@@ -53,6 +54,9 @@
                             <outlet property="delegate" destination="MpQ-0X-iWU" id="u4q-tm-gil"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="addInterestButton" destination="BBX-1R-daR" id="yhs-re-WSM"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jqc-6F-jSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
