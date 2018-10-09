@@ -9,6 +9,9 @@
 import UIKit
 
 class ViewControllerInfo: UIViewController {
+    
+    //nome identificativo dell'articolo
+    var nome: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,7 +9,13 @@
 import UIKit
 
 class TableViewControllerGoal: UITableViewController {
-
+    
+    var interestName = ["READING","WRITING","COOKING", "PLAYING MUSIC","LISTEN TO MUSIC","PLAYING SPORT","FOLLOW A SPORT","PETS","THEATRE","ACTING","CINEMA","NATURE","WELFARE","SOCIALITY'","VOLUNTERING","TECHNOLOGY","SPIRITUALITY","JOURNEY"]
+    
+    var interestImage = ["leggere.jpeg","scirvere.jpeg","cucinare.jpeg","praticareMusica.jpeg","ascoltareMusica.jpeg","praticareSport.jpeg","seguireSport.jpeg","animali.jpeg","teatro.jpeg","recitazione.jpeg","cinema.jpeg","natura.jpeg","benessere.jpeg","socialita.jpeg","volontariato.jpeg","tecnologia.jpeg","spiritualita.jpeg","viaggiare.jpeg"]
+    
+    var userInterests: [String]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,16 +35,30 @@ class TableViewControllerGoal: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return interestName.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = interestName[indexPath.row]
+        cell.imageView?.image = UIImage(named: interestImage[indexPath.row])
 
         // Configure the cell...
 
         return cell
+    }
+    
+    func addInterest(){
+        
+    }
+    
+    //da verificare
+   /*
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            performSegue(withIdentifier: "dettagli", sender: self)
+        }
     }
     */
 
