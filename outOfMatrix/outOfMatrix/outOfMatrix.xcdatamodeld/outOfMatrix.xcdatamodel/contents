@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Articolo" representedClassName="Articolo" syncable="YES" codeGenerationType="class">
+        <attribute name="contenuto" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Goal" representedClassName="Goal" syncable="YES" codeGenerationType="class">
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -21,5 +25,6 @@
         <element name="Goal" positionX="568.03125" positionY="-421.62109375" width="140.2734375" height="120"/>
         <element name="Type" positionX="250.03125" positionY="-393.0078125" width="128" height="90"/>
         <element name="User" positionX="44.84765625" positionY="-394.37109375" width="128" height="90"/>
+        <element name="Articolo" positionX="252" positionY="-378" width="128" height="75"/>
     </elements>
 </model>
