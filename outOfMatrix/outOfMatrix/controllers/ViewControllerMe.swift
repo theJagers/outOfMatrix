@@ -10,9 +10,19 @@ import UIKit
 
 class ViewControllerMe: UIViewController {
 
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var nameProfile: UILabel!
+    @IBOutlet weak var pointD: UILabel!
+    @IBOutlet weak var pointW: UILabel!
+    @IBOutlet weak var pointM: UILabel!
+    @IBOutlet weak var changeIcon: UIButton!
+    
+    
+    let change = UIImage(named: "modifica")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        changeIcon.setBackgroundImage(change, for: .normal)
         // Do any additional setup after loading the view.
     }
     
