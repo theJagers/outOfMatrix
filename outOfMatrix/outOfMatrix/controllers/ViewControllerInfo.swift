@@ -8,7 +8,11 @@
 
 import UIKit
 
+
 class ViewControllerInfo: UIViewController {
+    
+    //lista dei nomi di tutti gli articoli
+    let arrayArticoli = ["ll più grande alleato", "Qualcosa"]
     
     //nome identificativo dell'articolo
     var nomeArticolo: String?
@@ -18,22 +22,36 @@ class ViewControllerInfo: UIViewController {
     
     //descrizione (contenuto) dell'articolo che sarà nel textView
     @IBOutlet weak var descrizioneArticolo: UITextView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nomeArticolo = selezionaArticolo()
+        
         titoloArticolo.text = nomeArticolo
         
         switch(nomeArticolo) {
         case "Il più grande alleato":
             descrizioneArticolo.text = "Il più grande alleato contro la tua dipendenza sei tu!"
         case "Qualcosa":
-            descrizioneArticolo.text = "Qualcosa"
+            descrizioneArticolo.text = "Qualcosa..."
         default:
             descrizioneArticolo.text = "Niente..."
             
         }
 
         // Do any additional setup after loading the view.
+    }
+    
+    
+    //questa variabile serve solo per selezionare random l'articolo che verrà visualizzato
+    var random: Int = 0
+    
+    func selezionaArticolo() -> String {
+        random = Int(arc4random()) % arrayArticoli.count
+        nomeArticolo = arrayArticoli[random]
+        
+        return nomeArticolo!
     }
     
 
