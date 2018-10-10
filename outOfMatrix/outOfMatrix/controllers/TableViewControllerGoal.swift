@@ -45,8 +45,7 @@ class TableViewControllerGoal: UITableViewController,  NSFetchedResultsControlle
         goal4.isSet = true
         
         appDelegate.saveContext()
- */
-        
+        */
         goals = loadGoal()
     }
     
@@ -75,15 +74,11 @@ class TableViewControllerGoal: UITableViewController,  NSFetchedResultsControlle
         return goals
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return goals.count
     }
 
@@ -101,55 +96,83 @@ class TableViewControllerGoal: UITableViewController,  NSFetchedResultsControlle
         return cell
     }
     
+    // Done
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let doneAction = UIContextualAction(style: .destructive, title: "Done") { (action, sourceView, completionHandler) in
+            
+            self.onSwipe(pointOp: {print("add point")}, indexPath: indexPath)
+            
+            // Call completion handler with true to indicate
+            completionHandler(true)
+        }
+        
+        // Set the icon and background color for the actions
+        doneAction.backgroundColor = UIColor(red: 76.0/255.0, green: 200.0/255.0, blue: 60.0/255.0, alpha: 1.0)
     
-   /*
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        return UISwipeActionsConfiguration(actions: [doneAction])
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    // Give up
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let giveUpAction = UIContextualAction(style: .normal, title: "Give Up") { (action, sourceView, completionHandler) in
+            
+            self.onSwipe(pointOp: {print("remove point")}, indexPath: indexPath)
+            
+            completionHandler(true)
+        }
+        
+        giveUpAction.backgroundColor = UIColor(red: 254.0/255.0, green: 149.0/255.0, blue: 38.0/255.0, alpha: 1.0)
+        
+        return UISwipeActionsConfiguration(actions: [giveUpAction])
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    
+    func onSwipe(pointOp: () -> Void, indexPath: IndexPath) {
+        // Edit coreData
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.goals[indexPath.row].isSet = false
+        appDelegate.saveContext()
+        
+        // pointOp
+        pointOp()
+        
+        // Remove row
+        self.goals.remove(at: indexPath.row)
+        self.tableView.deleteRows(at: [indexPath], with: .fade)
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    
+    /* Update with add
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch type {
+        case .insert:
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .fade)
+            }
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        case .update:
+            if let indexPath = indexPath {
+                tableView.reloadRows(at: [indexPath], with: .fade)
+            }
+        default:
+            tableView.reloadData()
+        }
+        
+        if let fetchedObjects = controller.fetchedObjects {
+            goals = fetchedObjects as! [Goal]
+        }
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }*/
 }
