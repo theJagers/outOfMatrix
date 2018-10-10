@@ -14,6 +14,8 @@ class PopUpInfoAppViewControllerWelcome: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,7 +23,10 @@ class PopUpInfoAppViewControllerWelcome: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func closePopUpInfoApp(_ sender: Any) {
+        self.view.removeFromSuperview()
+    }
+    
     /*
     // MARK: - Navigation
 
