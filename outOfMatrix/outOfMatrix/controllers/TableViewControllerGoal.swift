@@ -7,25 +7,43 @@
 //
 
 import UIKit
+import CoreData
 
-class TableViewControllerGoal: UITableViewController {
-    
-    var interestName = ["READING","WRITING","COOKING", "PLAYING MUSIC","LISTEN TO MUSIC","PLAYING SPORT","FOLLOW A SPORT","PETS","THEATRE","ACTING","CINEMA","NATURE","WELFARE","SOCIALITY","VOLUNTERING","TECHNOLOGY","SPIRITUALITY","JOURNEY"]
-    
-    var interestImage = ["leggere.jpeg","scirvere.jpeg","cucinare.jpeg","praticareMusica.jpeg","ascoltareMusica.jpeg","praticareSport.jpeg","seguireSport.jpeg","animali.jpeg","teatro.jpeg","recitazione.jpeg","cinema.jpeg","natura.jpeg","benessere.jpeg","socialita.jpeg","volontariato.jpeg","tecnologia.jpeg","spiritualita.jpeg","viaggiare.jpeg"]
-    
-    var userInterests: [String] = [String]()
-    
-    @IBOutlet weak var addInterestButton: UIBarButtonItem!
-    
+class TableViewControllerGoal: UITableViewController,  NSFetchedResultsControllerDelegate {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    func loadGoal() -> [Goal] {
+        var goals: [Goal] = []
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                var fetchController: NSFetchedResultsController<Goal>!
+                let fetchRequest: NSFetchRequest<Goal> = Goal.fetchRequest()
+                let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+                fetchRequest.sortDescriptors = [sortDescriptor]
+                let context = appDelegate.persistentContainer.viewContext
+                fetchController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+                fetchController.delegate = self
+            
+                do {
+                    try fetchController.performFetch()
+                    if let fetchedObjects = fetchController.fetchedObjects {
+                        goals = fetchedObjects.filter({ it -> Bool in
+                            it.isSet
+                        })
+                    }
+                } catch {
+                    print(error)
+                }
+            }
+        return goals
     }
 
     // MARK: - Table view data source
@@ -37,37 +55,19 @@ class TableViewControllerGoal: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return interestName.count
+        return 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = interestName[indexPath.row]
-        cell.imageView?.image = UIImage(named: interestImage[indexPath.row])
-
-        // Configure the cell...
 
         return cell
     }
     
-    func getInterest(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            userInterests.append(interestName[0])
-        }
-        //seleziono una riga della table
-        //premo il tasto add
-        //aggiungo l'interest name all'array userInterests
-        
-        
-    }
     
-    //da verificare
    /*
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            performSegue(withIdentifier: "dettagli", sender: self)
-        }
     }
     */
 

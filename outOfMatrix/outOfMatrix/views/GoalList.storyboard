@@ -71,9 +71,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Zep-nG-kao"/>
-                    <connections>
-                        <outlet property="addInterestButton" destination="BBX-1R-daR" id="yhs-re-WSM"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jqc-6F-jSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
