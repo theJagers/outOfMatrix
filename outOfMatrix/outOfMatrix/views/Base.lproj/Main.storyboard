@@ -150,7 +150,7 @@
                                 <rect key="frame" x="51.5" y="602" width="272" height="30"/>
                                 <state key="normal" title="CHOOSE YOUR FAVOURITE ACTIVITIES"/>
                                 <connections>
-                                    <segue destination="zOg-2F-qZz" kind="show" id="tm5-Md-Rvn"/>
+                                    <segue destination="3Fy-p0-IGK" kind="show" id="AIj-PQ-efg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -182,6 +182,14 @@
             </objects>
             <point key="canvasLocation" x="789.60000000000002" y="-1580.0599700149926"/>
         </scene>
+        <!--interestsID-->
+        <scene sceneID="532-q9-2kj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Interests" referencedIdentifier="interestsID" id="3Fy-p0-IGK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UBr-5U-UdU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="-1134"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="QgR-sc-2UB">
             <objects>
@@ -201,14 +209,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UBX-0t-ZOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="790" y="-734"/>
-        </scene>
-        <!--profileID-->
-        <scene sceneID="vqR-O5-mEt">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="profileID" id="zOg-2F-qZz" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="v7Z-Fb-IxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1285" y="-1125"/>
         </scene>
         <!--goalListID-->
         <scene sceneID="ahX-fd-vtX">

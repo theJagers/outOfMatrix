@@ -9,14 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--NewGoalID-->
-        <scene sceneID="3zR-sv-8Hr">
-            <objects>
-                <viewControllerPlaceholder storyboardName="NewGoal" referencedIdentifier="NewGoalID" id="bix-Nw-3yB" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="b9N-bc-sCa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="652" y="-138"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="xBf-04-H8K">
             <objects>
@@ -49,7 +41,7 @@
                                     <barButtonItem key="rightBarButtonItem" title="Add" id="BBX-1R-daR">
                                         <connections>
                                             <action selector="addInterest:" destination="MpQ-0X-iWU" id="dme-Tx-Xef"/>
-                                            <segue destination="bix-Nw-3yB" kind="show" identifier="NewGoal" id="4bb-d2-mFz"/>
+                                            <segue destination="SPW-vN-j9A" kind="show" id="fTJ-7i-VlR"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>
@@ -108,6 +100,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jqc-6F-jSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="56.799999999999997" y="-137.18140929535232"/>
+        </scene>
+        <!--interestsID-->
+        <scene sceneID="Zv6-oF-tsx">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Interests" referencedIdentifier="interestsID" id="SPW-vN-j9A" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZWq-o1-PUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="768" y="-153"/>
         </scene>
     </scenes>
 </document>
