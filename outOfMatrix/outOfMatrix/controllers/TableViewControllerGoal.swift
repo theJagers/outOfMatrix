@@ -99,11 +99,21 @@ class TableViewControllerGoal: UITableViewController,  NSFetchedResultsControlle
     // Done
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let doneAction = UIContextualAction(style: .destructive, title: "Done") { (action, sourceView, completionHandler) in
+            self.onSwipe(indexPath: indexPath, completionHandler: completionHandler, pointOp: {
+                let point = self.goals[indexPath.row].point
             
-            self.onSwipe(pointOp: {print("add point")}, indexPath: indexPath)
-            
-            // Call completion handler with true to indicate
-            completionHandler(true)
+                // Pop Up
+                let alertController = UIAlertController(
+                    title: "Done",
+                    message: "congratulations, you earned \(point) points",
+                    preferredStyle: UIAlertController.Style.alert
+                )
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alertController, animated: true, completion: nil)
+                
+                // Save point
+                self.savePoint(point: point)
+            })
         }
         
         // Set the icon and background color for the actions
@@ -115,11 +125,20 @@ class TableViewControllerGoal: UITableViewController,  NSFetchedResultsControlle
     // Give up
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let giveUpAction = UIContextualAction(style: .normal, title: "Give Up") { (action, sourceView, completionHandler) in
-            
-            self.onSwipe(pointOp: {print("remove point")}, indexPath: indexPath)
-            
-            completionHandler(true)
+        let giveUpAction = UIContextualAction(style: .normal, title: "Give Up") { (_, _, completionHandler) in
+            self.onSwipe(indexPath: indexPath, completionHandler: completionHandler, pointOp: {
+                let point = self.goals[indexPath.row].point
+                let alertController = UIAlertController(
+                    title: "Give Up",
+                    message: "You gave up, you lost \(point) points",
+                    preferredStyle: UIAlertController.Style.alert
+                )
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alertController, animated: true, completion: nil)
+                
+                // Save point
+                self.savePoint(point: -point)
+            })
         }
         
         giveUpAction.backgroundColor = UIColor(red: 254.0/255.0, green: 149.0/255.0, blue: 38.0/255.0, alpha: 1.0)
@@ -128,7 +147,7 @@ class TableViewControllerGoal: UITableViewController,  NSFetchedResultsControlle
     }
     
     
-    func onSwipe(pointOp: () -> Void, indexPath: IndexPath) {
+    func onSwipe(indexPath: IndexPath, completionHandler: (Bool) -> Void, pointOp: () -> Void) {
         // Edit coreData
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         self.goals[indexPath.row].isSet = false
@@ -140,6 +159,20 @@ class TableViewControllerGoal: UITableViewController,  NSFetchedResultsControlle
         // Remove row
         self.goals.remove(at: indexPath.row)
         self.tableView.deleteRows(at: [indexPath], with: .fade)
+        
+        // Call completion handler with true to indicate
+        completionHandler(true)
+    }
+    
+    func savePoint(point: Int16) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let dbPoint = Point(context: context)
+        dbPoint.point = point
+        dbPoint.date = Date()
+        
+        appDelegate.saveContext()
     }
     
     

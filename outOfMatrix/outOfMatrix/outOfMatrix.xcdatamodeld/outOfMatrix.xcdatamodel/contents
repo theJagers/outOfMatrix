@@ -11,6 +11,10 @@
         <attribute name="point" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="types" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="Type" inverseName="goals" inverseEntity="Type" syncable="YES"/>
     </entity>
+    <entity name="Point" representedClassName="Point" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="point" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="Type" representedClassName="Type" syncable="YES" codeGenerationType="class">
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="goals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Goal" inverseName="types" inverseEntity="Goal" syncable="YES"/>
@@ -19,5 +23,6 @@
         <element name="Articolo" positionX="252" positionY="-378" width="128" height="75"/>
         <element name="Goal" positionX="568.03125" positionY="-421.62109375" width="140.2734375" height="120"/>
         <element name="Type" positionX="250.03125" positionY="-393.0078125" width="128" height="75"/>
+        <element name="Point" positionX="414" positionY="-378" width="128" height="75"/>
     </elements>
 </model>
