@@ -11,66 +11,42 @@ import CoreData
 
 class TableViewControllerGoal: UITableViewController,  NSFetchedResultsControllerDelegate {
 
+    var fetchController: NSFetchedResultsController<Goal>!
     var goals: [Goal] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        /*
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let goal1 = Goal(context: context)
-        goal1.name = "Corri nel parco per 25 minuti"
-        goal1.point = 250
-        goal1.desc = "Devi correre per 25 minuti, mi raccomando non usare lo smartphone"
-        goal1.isSet = true
-        
-        let goal2 = Goal(context: context)
-        goal2.name = "Caffè con un amico"
-        goal2.point = 150
-        goal2.desc = "Prendi un caffè con un amico che non vedi da tempo. Lo smartphone è ammesso solo per dargli appuntamento"
-        goal2.isSet = true
-        
-        let goal3 = Goal(context: context)
-        goal3.name = "Cucina una torta"
-        goal3.point = 350
-        goal3.desc = "Cucina una torta, non cercare la ricetta su internet"
-        goal3.isSet = true
-        
-        let goal4 = Goal(context: context)
-        goal4.name = "Non so"
-        goal4.point = 2500
-        goal4.desc = "Non so, fai tu"
-        goal4.isSet = true
-        
-        appDelegate.saveContext()
-        */
         goals = loadGoal()
     }
     
     func loadGoal() -> [Goal] {
         var goals: [Goal] = []
             if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-                var fetchController: NSFetchedResultsController<Goal>!
                 let fetchRequest: NSFetchRequest<Goal> = Goal.fetchRequest()
-                let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+                
+                let sortDescriptor = NSSortDescriptor(key: "point", ascending: false)
                 fetchRequest.sortDescriptors = [sortDescriptor]
+                fetchRequest.predicate = NSPredicate(format: "isSet == %@", NSNumber(value: true))
+                
                 let context = appDelegate.persistentContainer.viewContext
-                fetchController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+                fetchController = NSFetchedResultsController(
+                    fetchRequest: fetchRequest,
+                    managedObjectContext: context,
+                    sectionNameKeyPath: nil,
+                    cacheName: nil
+                )
                 fetchController.delegate = self
             
                 do {
                     try fetchController.performFetch()
                     if let fetchedObjects = fetchController.fetchedObjects {
-                        goals = fetchedObjects.filter({ it -> Bool in
-                            it.isSet
-                        })
+                        goals = fetchedObjects
                     }
                 } catch {
                     print(error)
                 }
             }
+        
         return goals
     }
 
@@ -99,9 +75,9 @@ class TableViewControllerGoal: UITableViewController,  NSFetchedResultsControlle
     // Done
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let doneAction = UIContextualAction(style: .destructive, title: "Done") { (action, sourceView, completionHandler) in
-            self.onSwipe(indexPath: indexPath, completionHandler: completionHandler, pointOp: {
-                let point = self.goals[indexPath.row].point
+            let point = self.goals[indexPath.row].point
             
+            self.onSwipe(point: point, index: indexPath.row, alert: {
                 // Pop Up
                 let alertController = UIAlertController(
                     title: "Done",
@@ -110,10 +86,10 @@ class TableViewControllerGoal: UITableViewController,  NSFetchedResultsControlle
                 )
                 alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alertController, animated: true, completion: nil)
-                
-                // Save point
-                self.savePoint(point: point)
             })
+            
+            // Call completion handler with true to indicate
+            completionHandler(true)
         }
         
         // Set the icon and background color for the actions
@@ -124,10 +100,11 @@ class TableViewControllerGoal: UITableViewController,  NSFetchedResultsControlle
     
     // Give up
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
         let giveUpAction = UIContextualAction(style: .normal, title: "Give Up") { (_, _, completionHandler) in
-            self.onSwipe(indexPath: indexPath, completionHandler: completionHandler, pointOp: {
-                let point = self.goals[indexPath.row].point
+            let point = self.goals[indexPath.row].point
+            
+            self.onSwipe(point: -point, index: indexPath.row, alert: {
+                // Pop Up
                 let alertController = UIAlertController(
                     title: "Give Up",
                     message: "You gave up, you lost \(point) points",
@@ -135,10 +112,10 @@ class TableViewControllerGoal: UITableViewController,  NSFetchedResultsControlle
                 )
                 alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alertController, animated: true, completion: nil)
-                
-                // Save point
-                self.savePoint(point: -point)
             })
+            
+            // Call completion handler with true to indicate
+            completionHandler(true)
         }
         
         giveUpAction.backgroundColor = UIColor(red: 254.0/255.0, green: 149.0/255.0, blue: 38.0/255.0, alpha: 1.0)
@@ -147,36 +124,26 @@ class TableViewControllerGoal: UITableViewController,  NSFetchedResultsControlle
     }
     
     
-    func onSwipe(indexPath: IndexPath, completionHandler: (Bool) -> Void, pointOp: () -> Void) {
-        // Edit coreData
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        self.goals[indexPath.row].isSet = false
-        appDelegate.saveContext()
-        
-        // pointOp
-        pointOp()
-        
-        // Remove row
-        self.goals.remove(at: indexPath.row)
-        self.tableView.deleteRows(at: [indexPath], with: .fade)
-        
-        // Call completion handler with true to indicate
-        completionHandler(true)
-    }
-    
-    func savePoint(point: Int16) {
+    func onSwipe(point: Int16, index: Int, alert: () -> Void) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
+        // Update goal
+        self.goals[index].isSet = false
+        // Stoare scoar
         let dbPoint = Point(context: context)
         dbPoint.point = point
         dbPoint.date = Date()
         
-        appDelegate.saveContext()
+        // save
+        do {
+            try context.save()
+        } catch { print(error) }
+        
+        // show alert
+        alert()
     }
-    
-    
-    /* Update with add
+
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
@@ -207,5 +174,5 @@ class TableViewControllerGoal: UITableViewController,  NSFetchedResultsControlle
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
-    }*/
+    }
 }
