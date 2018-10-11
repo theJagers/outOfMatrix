@@ -272,6 +272,21 @@ class ViewControllerNewGoal: UIViewController {
 //        newgoal.text = goalsd[random]
     }
     
+    @IBAction func onSaveClick(_ sender: UIBarButtonItem) {
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            let context = appDelegate.persistentContainer.viewContext
+            
+            let goal = Goal(context: context)
+            goal.isSet = true
+            goal.desc = "Prova"
+            goal.name = "ddddckdkd"
+            goal.point = 200
+            appDelegate.saveContext()
+            
+        }
+        navigationController?.popViewController(animated: true)
+    }
+    
     
 
     /*

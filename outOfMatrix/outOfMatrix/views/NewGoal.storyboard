@@ -75,7 +75,6 @@
                                         <barButtonItem key="rightBarButtonItem" title="Done" id="a4c-Xv-c1r">
                                             <connections>
                                                 <action selector="onSaveClick:" destination="Cyv-bo-dj4" id="zOr-fy-h0L"/>
-                                                <segue destination="LDk-1f-brn" kind="show" id="J6a-qi-72D"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -96,14 +95,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lxP-ll-fHn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="328.80000000000001" y="138.98050974512745"/>
-        </scene>
-        <!--goalListID-->
-        <scene sceneID="acv-ER-Eeq">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="goalListID" storyboardName="GoalList" referencedIdentifier="goalListID" id="LDk-1f-brn" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Oyn-zO-9lk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="975" y="139"/>
         </scene>
     </scenes>
 </document>
