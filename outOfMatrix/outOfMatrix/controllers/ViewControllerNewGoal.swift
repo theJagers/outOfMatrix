@@ -10,11 +10,13 @@ import UIKit
 
 class ViewControllerNewGoal: UIViewController {
 
-   
+    var interest = "READING"
+    
     @IBOutlet weak var cambia: UISegmentedControl!
     @IBOutlet weak var rerollLabel: UILabel!
     @IBOutlet weak var newgoal: UILabel!
     @IBOutlet weak var reroll: UIButton!
+    @IBOutlet weak var point: UILabel!
     
     let roll1 = UIImage(named: "re-roll")    
 
@@ -67,7 +69,7 @@ class ViewControllerNewGoal: UIViewController {
     var suonareMPt = [500, 200, 400, 550, 550]
     
     // Giornaliero
-    var acoltareD = ["Compra un CD", "Chiedi consiglio su una canzi"]
+    var ascoltareD = ["Compra un CD", "Chiedi consiglio su una canzi"]
     var ascoltareDPt = [30, 40]
     
     // Settimanale
@@ -213,52 +215,575 @@ class ViewControllerNewGoal: UIViewController {
     
     var random: Int = 0
     var numero: Int = 0
+    var punteggio: Int?
     
     @IBAction func cambiaValore(_ sender: UISegmentedControl) {
         if cambia.selectedSegmentIndex == 0 {
             numero = 0
-
+            if (interest == "READING") {
+                random = Int(arc4random()) % leggereD.count
+                newgoal.text = leggereD[random]
+                punteggio = leggereDPt[random]
+                let points = "\(punteggio!)" as String
+                point.text = points
+            }
+            else if (interest == "WRITING") {
+                random = Int(arc4random()) % scrivereD.count
+                newgoal.text = scrivereD[random]
+                punteggio = scrivereDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "COOKING") {
+                random = Int(arc4random()) % cucinareD.count
+                newgoal.text = cucinareD[random]
+                punteggio = cucinareDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "PLAYING MUSIC") {
+                random = Int(arc4random()) % suonareD.count
+                newgoal.text = suonareD[random]
+                punteggio = suonareDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "LISTEN TO MUSIC") {
+                random = Int(arc4random()) % ascoltareD.count
+                newgoal.text = ascoltareD[random]
+                punteggio = ascoltareDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "PLAYING SPORT") {
+                random = Int(arc4random()) % fare_sportD.count
+                newgoal.text = fare_sportD[random]
+                punteggio = fare_sportDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "FOLLOW A SPORT") {
+                random = Int(arc4random()) % guardare_sportD.count
+                newgoal.text = guardare_sportD[random]
+                punteggio = guardare_sportDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "THEATRE") {
+                random = Int(arc4random()) % teatroD.count
+                newgoal.text = teatroD[random]
+                punteggio = teatroDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+           else if (interest == "NATURE") {
+                random = Int(arc4random()) % naturaD.count
+                newgoal.text = naturaD[random]
+                punteggio = naturaDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "SOCIALITY") {
+                random = Int(arc4random()) % socializzareD.count
+                newgoal.text = socializzareD[random]
+                punteggio = socializzareDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "VOLUNTERING") {
+                random = Int(arc4random()) % volontariatoD.count
+                newgoal.text = volontariatoD[random]
+                punteggio = volontariatoDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "TECHNOLOGY") {
+                random = Int(arc4random()) % tecnologiaD.count
+                newgoal.text = tecnologiaD[random]
+                punteggio = tecnologiaDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+        else if (interest == "JOURNEY") {
+            random = Int(arc4random()) % viaggiareD.count
+            newgoal.text = viaggiareD[random]
+                punteggio = viaggiareDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+        }
             rerollLabel.text = "You can generate another goal. Just once"
         }
         if cambia.selectedSegmentIndex == 1 {
             numero = 1
-//
+            if (interest == "READING") {
+                random = Int(arc4random()) % leggereW.count
+                newgoal.text = leggereW[random]
+                punteggio = leggereWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "WRITING") {
+                random = Int(arc4random()) % scrivereW.count
+                newgoal.text = scrivereW[random]
+                punteggio = scrivereWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "COOKING") {
+                random = Int(arc4random()) % cucinareW.count
+                newgoal.text = cucinareW[random]
+                punteggio = cucinareWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "PLAYING MUSIC") {
+                random = Int(arc4random()) % suonareW.count
+                newgoal.text = suonareW[random]
+                punteggio = suonareWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "LISTEN TO MUSIC") {
+                random = Int(arc4random()) % ascoltareW.count
+                newgoal.text = ascoltareW[random]
+                punteggio = ascoltareWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "PLAYING SPORT") {
+                random = Int(arc4random()) % fare_sportW.count
+                newgoal.text = fare_sportW[random]
+                punteggio = fare_sportWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "FOLLOW A SPORT") {
+                random = Int(arc4random()) % guardare_sportW.count
+                newgoal.text = guardare_sportW[random]
+                punteggio = guardare_sportWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "THEATRE") {
+                random = Int(arc4random()) % teatroW.count
+                newgoal.text = teatroW[random]
+                punteggio = teatroWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "NATURE") {
+                random = Int(arc4random()) % naturaW.count
+                newgoal.text = naturaW[random]
+                punteggio = naturaWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "SOCIALITY") {
+                random = Int(arc4random()) % socializzareW.count
+                newgoal.text = socializzareW[random]
+                punteggio = socializzareWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "VOLUNTERING") {
+                random = Int(arc4random()) % volontariatoW.count
+                newgoal.text = volontariatoW[random]
+                punteggio = volontariatoWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "TECHNOLOGY") {
+                random = Int(arc4random()) % tecnologiaW.count
+                newgoal.text = tecnologiaW[random]
+                punteggio = tecnologiaWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "JOURNEY") {
+                random = Int(arc4random()) % viaggiareW.count
+                newgoal.text = viaggiareW[random]
+                punteggio = viaggiareWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
             rerollLabel.text = "You can generate another goal. Just three times"
         }
         if cambia.selectedSegmentIndex == 2 {
             numero = 2
-//
-            rerollLabel.text = "You can generate another goal. Just five times"
-        }
+            if (interest == "READING") {
+                random = Int(arc4random()) % leggereM.count
+                newgoal.text = leggereM[random]
+                punteggio = leggereMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "WRITING") {
+                random = Int(arc4random()) % scrivereM.count
+                newgoal.text = scrivereM[random]
+                punteggio = scrivereMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "COOKING") {
+                random = Int(arc4random()) % cucinareM.count
+                newgoal.text = cucinareM[random]
+                punteggio = cucinareMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "PLAYING MUSIC") {
+                random = Int(arc4random()) % suonareM.count
+                newgoal.text = suonareM[random]
+                punteggio = suonareMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "LISTEN TO MUSIC") {
+                random = Int(arc4random()) % ascoltareM.count
+                newgoal.text = ascoltareM[random]
+                punteggio = ascoltareMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "PLAYING SPORT") {
+                random = Int(arc4random()) % fare_sportM.count
+                newgoal.text = fare_sportM[random]
+                punteggio = fare_sportMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "FOLLOW A SPORT") {
+                random = Int(arc4random()) % guardare_sportM.count
+                newgoal.text = guardare_sportM[random]
+                punteggio = guardare_sportMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "THEATRE") {
+                random = Int(arc4random()) % teatroM.count
+                newgoal.text = teatroM[random]
+                punteggio = teatroMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "NATURE") {
+                random = Int(arc4random()) % naturaM.count
+                newgoal.text = naturaM[random]
+                punteggio = naturaMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "SOCIALITY") {
+                random = Int(arc4random()) % socializzareM.count
+                newgoal.text = socializzareM[random]
+                punteggio = socializzareMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "VOLUNTERING") {
+                random = Int(arc4random()) % volontariatoM.count
+                newgoal.text = volontariatoM[random]
+                punteggio = volontariatoMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "TECHNOLOGY") {
+                random = Int(arc4random()) % tecnologiaM.count
+                newgoal.text = tecnologiaM[random]
+                punteggio = tecnologiaMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "JOURNEY") {
+                random = Int(arc4random()) % viaggiareM.count
+                newgoal.text = viaggiareM[random]
+                punteggio = viaggiareMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+                rerollLabel.text = "You can generate another goal. Just five times"
+            }
     }
-    
-/*    @IBAction func onSaveClick(_ sender: UIBarButtonItem) {
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-            let context = appDelegate.persistentContainer.viewContext
-            
-            let goal = Goal(context: context)
-            goal.isSet = true
-            goal.desc = "Prova"
-            goal.name =
-            goal.point = 200
-            appDelegate.saveContext()
-            
-        }
-        navigationController?.popViewController(animated: true)
-    }*/
     
     @IBAction func reroll(_ sender: Any) {
         if numero == 0 {
-//            random = Int(arc4random()) % goalsd.count
-//            newgoal.text = goalsd[random]
+            if (interest == "READING") {
+                random = Int(arc4random()) % leggereD.count
+                newgoal.text = leggereD[random]
+                punteggio = leggereDPt[random]
+                let points = "\(punteggio!)" as String
+                point.text = points
+            }
+            else if (interest == "WRITING") {
+                random = Int(arc4random()) % scrivereD.count
+                newgoal.text = scrivereD[random]
+                punteggio = scrivereDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "COOKING") {
+                random = Int(arc4random()) % cucinareD.count
+                newgoal.text = cucinareD[random]
+                punteggio = cucinareDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "PLAYING MUSIC") {
+                random = Int(arc4random()) % suonareD.count
+                newgoal.text = suonareD[random]
+                punteggio = suonareDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "LISTEN TO MUSIC") {
+                random = Int(arc4random()) % ascoltareD.count
+                newgoal.text = ascoltareD[random]
+                punteggio = ascoltareDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "PLAYING SPORT") {
+                random = Int(arc4random()) % fare_sportD.count
+                newgoal.text = fare_sportD[random]
+                punteggio = fare_sportDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "FOLLOW A SPORT") {
+                random = Int(arc4random()) % guardare_sportD.count
+                newgoal.text = guardare_sportD[random]
+                punteggio = guardare_sportDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "THEATRE") {
+                random = Int(arc4random()) % teatroD.count
+                newgoal.text = teatroD[random]
+                punteggio = teatroDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "NATURE") {
+                random = Int(arc4random()) % naturaD.count
+                newgoal.text = naturaD[random]
+                punteggio = naturaDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "SOCIALITY") {
+                random = Int(arc4random()) % socializzareD.count
+                newgoal.text = socializzareD[random]
+                punteggio = socializzareDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "VOLUNTERING") {
+                random = Int(arc4random()) % volontariatoD.count
+                newgoal.text = volontariatoD[random]
+                punteggio = volontariatoDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "TECHNOLOGY") {
+                random = Int(arc4random()) % tecnologiaD.count
+                newgoal.text = tecnologiaD[random]
+                punteggio = tecnologiaDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "JOURNEY") {
+                random = Int(arc4random()) % viaggiareD.count
+                newgoal.text = viaggiareD[random]
+                punteggio = viaggiareDPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
         }
-        if numero == 1 {
-//            random = Int(arc4random()) % goalsw.count
-//            newgoal.text = goalsw[random]
+        else if numero == 1 {
+            if (interest == "READING") {
+                random = Int(arc4random()) % leggereW.count
+                newgoal.text = leggereW[random]
+                punteggio = leggereWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "WRITING") {
+                random = Int(arc4random()) % scrivereW.count
+                newgoal.text = scrivereW[random]
+                punteggio = scrivereWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "COOKING") {
+                random = Int(arc4random()) % cucinareW.count
+                newgoal.text = cucinareW[random]
+                punteggio = cucinareWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "PLAYING MUSIC") {
+                random = Int(arc4random()) % suonareW.count
+                newgoal.text = suonareW[random]
+                punteggio = suonareWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "LISTEN TO MUSIC") {
+                random = Int(arc4random()) % ascoltareW.count
+                newgoal.text = ascoltareW[random]
+                punteggio = ascoltareWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "PLAYING SPORT") {
+                random = Int(arc4random()) % fare_sportW.count
+                newgoal.text = fare_sportW[random]
+                punteggio = fare_sportWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "FOLLOW A SPORT") {
+                random = Int(arc4random()) % guardare_sportW.count
+                newgoal.text = guardare_sportW[random]
+                punteggio = guardare_sportWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "THEATRE") {
+                random = Int(arc4random()) % teatroW.count
+                newgoal.text = teatroW[random]
+                punteggio = teatroWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "NATURE") {
+                random = Int(arc4random()) % naturaW.count
+                newgoal.text = naturaW[random]
+                punteggio = naturaWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "SOCIALITY") {
+                random = Int(arc4random()) % socializzareW.count
+                newgoal.text = socializzareW[random]
+                punteggio = socializzareWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "VOLUNTERING") {
+                random = Int(arc4random()) % volontariatoW.count
+                newgoal.text = volontariatoW[random]
+                punteggio = volontariatoWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "TECHNOLOGY") {
+                random = Int(arc4random()) % tecnologiaW.count
+                newgoal.text = tecnologiaW[random]
+                punteggio = tecnologiaWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "JOURNEY") {
+                random = Int(arc4random()) % viaggiareW.count
+                newgoal.text = viaggiareW[random]
+                punteggio = viaggiareWPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
         }
-        if numero == 2 {
-//            random = Int(arc4random()) % goalsm.count
-//            newgoal.text = goalsm[random]
+        else if numero == 2 {
+            if (interest == "READING") {
+                random = Int(arc4random()) % leggereM.count
+                newgoal.text = leggereM[random]
+                punteggio = leggereMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "WRITING") {
+                random = Int(arc4random()) % scrivereM.count
+                newgoal.text = scrivereM[random]
+                punteggio = scrivereMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "COOKING") {
+                random = Int(arc4random()) % cucinareM.count
+                newgoal.text = cucinareM[random]
+                punteggio = cucinareMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "PLAYING MUSIC") {
+                random = Int(arc4random()) % suonareM.count
+                newgoal.text = suonareM[random]
+                punteggio = suonareMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "LISTEN TO MUSIC") {
+                random = Int(arc4random()) % ascoltareM.count
+                newgoal.text = ascoltareM[random]
+                punteggio = ascoltareMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "PLAYING SPORT") {
+                random = Int(arc4random()) % fare_sportM.count
+                newgoal.text = fare_sportM[random]
+                punteggio = fare_sportMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "FOLLOW A SPORT") {
+                random = Int(arc4random()) % guardare_sportM.count
+                newgoal.text = guardare_sportM[random]
+                punteggio = guardare_sportMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "THEATRE") {
+                random = Int(arc4random()) % teatroM.count
+                newgoal.text = teatroM[random]
+                punteggio = teatroMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "NATURE") {
+                random = Int(arc4random()) % naturaM.count
+                newgoal.text = naturaM[random]
+                punteggio = naturaMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "SOCIALITY") {
+                random = Int(arc4random()) % socializzareM.count
+                newgoal.text = socializzareM[random]
+                punteggio = socializzareMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "VOLUNTERING") {
+                random = Int(arc4random()) % volontariatoM.count
+                newgoal.text = volontariatoM[random]
+                punteggio = volontariatoMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "TECHNOLOGY") {
+                random = Int(arc4random()) % tecnologiaM.count
+                newgoal.text = tecnologiaM[random]
+                punteggio = tecnologiaMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
+            else if (interest == "JOURNEY") {
+                random = Int(arc4random()) % viaggiareM.count
+                newgoal.text = viaggiareM[random]
+                punteggio = viaggiareMPt[random]
+                let points = "\(punteggio)" as String
+                point.text = points
+            }
         }
     }
 
@@ -268,8 +793,97 @@ class ViewControllerNewGoal: UIViewController {
         
         // Do any additional setup after loading the view.
         reroll.setBackgroundImage(roll1, for: .normal)
-//        random = Int(arc4random()) % goalsd.count
-//        newgoal.text = goalsd[random]
+        if (interest == "READING") {
+            random = Int(arc4random()) % leggereD.count
+            newgoal.text = leggereD[random]
+            punteggio = leggereDPt[random]
+            let points = "\(punteggio!)" as String
+            point.text = points
+        }
+        else if (interest == "WRITING") {
+            random = Int(arc4random()) % scrivereD.count
+            newgoal.text = scrivereD[random]
+            punteggio = scrivereDPt[random]
+            let points = "\(punteggio)" as String
+            point.text = points
+        }
+        else if (interest == "COOKING") {
+            random = Int(arc4random()) % cucinareD.count
+            newgoal.text = cucinareD[random]
+            punteggio = cucinareDPt[random]
+            let points = "\(punteggio)" as String
+            point.text = points
+        }
+        else if (interest == "PLAYING MUSIC") {
+            random = Int(arc4random()) % suonareD.count
+            newgoal.text = suonareD[random]
+            punteggio = suonareDPt[random]
+            let points = "\(punteggio)" as String
+            point.text = points
+        }
+        else if (interest == "LISTEN TO MUSIC") {
+            random = Int(arc4random()) % ascoltareD.count
+            newgoal.text = ascoltareD[random]
+            punteggio = ascoltareDPt[random]
+            let points = "\(punteggio)" as String
+            point.text = points
+        }
+        else if (interest == "PLAYING SPORT") {
+            random = Int(arc4random()) % fare_sportD.count
+            newgoal.text = fare_sportD[random]
+            punteggio = fare_sportDPt[random]
+            let points = "\(punteggio)" as String
+            point.text = points
+        }
+        else if (interest == "FOLLOW A SPORT") {
+            random = Int(arc4random()) % guardare_sportD.count
+            newgoal.text = guardare_sportD[random]
+            punteggio = guardare_sportDPt[random]
+            let points = "\(punteggio)" as String
+            point.text = points
+        }
+        else if (interest == "THEATRE") {
+            random = Int(arc4random()) % teatroD.count
+            newgoal.text = teatroD[random]
+            punteggio = teatroDPt[random]
+            let points = "\(punteggio)" as String
+            point.text = points
+        }
+        else if (interest == "NATURE") {
+            random = Int(arc4random()) % naturaD.count
+            newgoal.text = naturaD[random]
+            punteggio = naturaDPt[random]
+            let points = "\(punteggio)" as String
+            point.text = points
+        }
+        else if (interest == "SOCIALITY") {
+            random = Int(arc4random()) % socializzareD.count
+            newgoal.text = socializzareD[random]
+            punteggio = socializzareDPt[random]
+            let points = "\(punteggio)" as String
+            point.text = points
+        }
+        else if (interest == "VOLUNTERING") {
+            random = Int(arc4random()) % volontariatoD.count
+            newgoal.text = volontariatoD[random]
+            punteggio = volontariatoDPt[random]
+            let points = "\(punteggio)" as String
+            point.text = points
+        }
+        else if (interest == "TECHNOLOGY") {
+            random = Int(arc4random()) % tecnologiaD.count
+            newgoal.text = tecnologiaD[random]
+            punteggio = tecnologiaDPt[random]
+            let points = "\(punteggio)" as String
+            point.text = points
+        }
+        else if (interest == "JOURNEY") {
+            random = Int(arc4random()) % viaggiareD.count
+            newgoal.text = viaggiareD[random]
+            punteggio = viaggiareDPt[random]
+            let points = "\(punteggio)" as String
+            point.text = points
+        }
     }
     
     @IBAction func onSaveClick(_ sender: UIBarButtonItem) {
@@ -279,8 +893,9 @@ class ViewControllerNewGoal: UIViewController {
             let goal = Goal(context: context)
             goal.isSet = true
             goal.desc = "Prova"
-            goal.name = "ddddckdkd"
-            goal.point = 200
+            goal.name = newgoal.text
+            let punto = point.text
+            goal.point = Int16(punto!)!
             appDelegate.saveContext()
             
         }
