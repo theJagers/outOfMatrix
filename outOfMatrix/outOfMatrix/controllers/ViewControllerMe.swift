@@ -11,7 +11,6 @@ import UIKit
 class ViewControllerMe: UIViewController {
 
     @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var nameProfile: UILabel!
     @IBOutlet weak var pointD: UILabel!
     @IBOutlet weak var pointW: UILabel!
     @IBOutlet weak var pointM: UILabel!
@@ -34,7 +33,6 @@ class ViewControllerMe: UIViewController {
         sommaRisultatiMensili()
         sommaRisultatiGiornalieri()
         sommaRisultatiSettimanali()
-//        nameProfile.text
         // Do any additional setup after loading the view.
     }
     
