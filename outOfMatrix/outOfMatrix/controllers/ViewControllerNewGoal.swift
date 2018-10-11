@@ -131,11 +131,11 @@ class ViewControllerNewGoal: UIViewController {
     var naturaDPt = [100, 200]
     
     // Settimanale
-    var naturaW = [""]
-    var naturaWPt = [1]
+    var naturaW = ["Vai una settimana al mare", "Vai una settimana in montagna"]
+    var naturaWPt = [100, 100]
     
     // Mensile
-    var naturaM = [""]
+    var naturaM = ["Vai un mese al mare", "Vai un mese in montagna"]
     var naturaMPt = [1]
     
 /*    // Giornaliero
@@ -148,19 +148,19 @@ class ViewControllerNewGoal: UIViewController {
     
     // Mensile
     var benessereM = [""]
-    var benessereMPt = [1]
+    var benessereMPt = [1] */
     
     // Giornaliero
-    var socializzareD = [""]
-    var socializzareDPt = [1]
+    var socializzareD = ["Fai una giornata di relax", "Vai in giro con un amico"]
+    var socializzareDPt = [50, 50]
     
     // Settimanale
-    var socializzareW = [""]
-    var socializzareWPt = [1] */
+    var socializzareW = ["Fai un viaggio con un amico", "Vai in vacanza con la famiglia", "Prenditi una settimana per te"]
+    var socializzareWPt = [100, 100, 100]
     
     // Mensile
-    var socializzareM = [""]
-    var socializzareMPt = [1]
+    var socializzareM = ["Porta un amico/a in un centro benessere", "Fai una sauna", "Prenditi un caffè con un amico che non vedevi da tempo"]
+    var socializzareMPt = [300, 300, 200]
     
     // Giornaliero
     var volontariatoD = [""]
@@ -217,24 +217,35 @@ class ViewControllerNewGoal: UIViewController {
     @IBAction func cambiaValore(_ sender: UISegmentedControl) {
         if cambia.selectedSegmentIndex == 0 {
             numero = 0
-//            random = Int(arc4random()) % goalsd.count
-//            newgoal.text = goalsd[random]
+
             rerollLabel.text = "You can generate another goal. Just once"
         }
         if cambia.selectedSegmentIndex == 1 {
             numero = 1
-//            random = Int(arc4random()) % goalsw.count
-//            newgoal.text = goalsw[random]
+//
             rerollLabel.text = "You can generate another goal. Just three times"
         }
         if cambia.selectedSegmentIndex == 2 {
             numero = 2
-//            random = Int(arc4random()) % goalsm.count
-//            newgoal.text = goalsm[random]
+//
             rerollLabel.text = "You can generate another goal. Just five times"
         }
     }
     
+/*    @IBAction func onSaveClick(_ sender: UIBarButtonItem) {
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            let context = appDelegate.persistentContainer.viewContext
+            
+            let goal = Goal(context: context)
+            goal.isSet = true
+            goal.desc = "Prova"
+            goal.name =
+            goal.point = 200
+            appDelegate.saveContext()
+            
+        }
+        navigationController?.popViewController(animated: true)
+    }*/
     
     @IBAction func reroll(_ sender: Any) {
         if numero == 0 {
