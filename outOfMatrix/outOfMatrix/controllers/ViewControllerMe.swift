@@ -19,6 +19,9 @@ class ViewControllerMe: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         let points = loadPoints()
         pointD.text = String(dailyPoint(points: points))
         pointW.text = String(weeklyPoint(points: points))
