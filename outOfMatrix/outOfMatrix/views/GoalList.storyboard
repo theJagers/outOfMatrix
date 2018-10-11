@@ -101,10 +101,10 @@
             </objects>
             <point key="canvasLocation" x="56.799999999999997" y="-137.18140929535232"/>
         </scene>
-        <!--interestsID-->
+        <!--NewGoalID-->
         <scene sceneID="Zv6-oF-tsx">
             <objects>
-                <viewControllerPlaceholder storyboardName="Interests" referencedIdentifier="interestsID" id="SPW-vN-j9A" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="NewGoal" referencedIdentifier="NewGoalID" id="SPW-vN-j9A" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZWq-o1-PUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="768" y="-153"/>

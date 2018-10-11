@@ -92,17 +92,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SF9-4R-8gi">
-                                <rect key="frame" x="308" y="71" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="MuN-d8-rcw"/>
                     </view>
                     <connections>
                         <outlet property="ProfileImage" destination="NFN-QC-qmv" id="BE7-Os-Juo"/>
-                        <outlet property="changeIcon" destination="SF9-4R-8gi" id="qcX-rt-k4D"/>
                         <outlet property="pointD" destination="h3G-xB-rpt" id="t6V-1O-38K"/>
                         <outlet property="pointM" destination="yIt-O9-Gqe" id="9z5-bM-CYQ"/>
                         <outlet property="pointW" destination="F9V-CD-44t" id="jz2-O1-bdZ"/>
