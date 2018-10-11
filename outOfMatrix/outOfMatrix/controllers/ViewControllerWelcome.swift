@@ -26,10 +26,10 @@ class ViewControllerWelcome: UIViewController {
     
     @IBAction func showPopUpInfoApp(_ sender: Any) {
         let popOverVCW = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpInfoAppID") as! PopUpInfoAppViewControllerWelcome
-        self.addChildViewController(popOverVCW)
+        self.addChild(popOverVCW)
         popOverVCW.view.frame = self.view.frame
         self.view.addSubview(popOverVCW.view)
-        popOverVCW.didMove(toParentViewController: self)
+        popOverVCW.didMove(toParent: self)
     }
     
     /*
