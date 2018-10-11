@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewControllerMe: UIViewController {
 
@@ -16,52 +17,85 @@ class ViewControllerMe: UIViewController {
     @IBOutlet weak var pointM: UILabel!
     @IBOutlet weak var changeIcon: UIButton!
     
-    var risultatod: Int = 0
-    var nuovo_risultatod: Int = 0
-    
-    var risultatow: Int = 0
-    var nuovo_risultatow: Int = 0
-    
-    var risultatom: Int = 0
-    var nuovo_risultatom: Int = 0
-    
-    let change = UIImage(named: "modifica")
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        changeIcon.setBackgroundImage(change, for: .normal)
-        sommaRisultatiMensili()
-        sommaRisultatiGiornalieri()
-        sommaRisultatiSettimanali()
-        // Do any additional setup after loading the view.
+        let points = loadPoints()
+        pointD.text = String(dailyPoint(points: points))
+        pointW.text = String(weeklyPoint(points: points))
+        pointM.text = String(monthlyPoint(points: points))
     }
     
-    func sommaRisultatiGiornalieri() {
-        risultatod = risultatod + nuovo_risultatod
-        let value = "\(risultatod)" as String
-        pointD.text = value
+    func dailyPoint(points: [Point]) -> Int {
+        var tot = 0
+        points
+            .filter { filterDate(pointDate: $0.date, dayBack: 1)}
+            .map { Int($0.point) }
+            .forEach { tot += $0 }
+        return tot
     }
     
-    func sommaRisultatiSettimanali() {
-        risultatow = risultatow + nuovo_risultatow
-        let value = "\(risultatow)" as String
-        pointW.text = value
+    func weeklyPoint(points: [Point]) -> Int {
+        var tot = 0
+        points
+            .filter { filterDate(pointDate: $0.date, dayBack: 7)}
+            .map { Int($0.point) }
+            .forEach { tot += $0 }
+        return tot
     }
     
-    func sommaRisultatiMensili() {
-        risultatom = risultatom + nuovo_risultatom
-        let value = "\(risultatom)" as String
-        pointM.text = value
+    func monthlyPoint(points: [Point]) -> Int {
+        var tot = 0
+        points
+            .filter { filterDate(pointDate: $0.date, dayBack: 30)}
+            .map { Int($0.point) }
+            .forEach { tot += $0 }
+        return tot
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func filterDate(pointDate: Date?, dayBack: Int) -> Bool {
+        let currentDate = Date()
+        var dateComponent = DateComponents()
+        dateComponent.day = -dayBack
+        let pastDate = Calendar.current.date(byAdding: dateComponent, to: currentDate)
+        /*
+        let dateformatter = DateFormatter()
+        dateformatter.dateStyle = DateFormatter.Style.short
+        dateformatter.timeStyle = DateFormatter.Style.short
+        print("data 1 \(dateformatter.string(from: pointDate!))")
+        print("date 2 \(dateformatter.string(from: pastDate!))")*/
+        if let pd = pointDate {
+            return pd < currentDate && pd > pastDate!
+        } else {
+            return false
+        }
     }
-    */
-
+    
+    func loadPoints() -> [Point] {
+        var points: [Point] = []
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            let fetchRequest: NSFetchRequest<Point> = Point.fetchRequest()
+            
+            let sortDescriptor = NSSortDescriptor(key: "point", ascending: false)
+            fetchRequest.sortDescriptors = [sortDescriptor]
+            
+            let context = appDelegate.persistentContainer.viewContext
+            let fetchController = NSFetchedResultsController(
+                fetchRequest: fetchRequest,
+                managedObjectContext: context,
+                sectionNameKeyPath: nil,
+                cacheName: nil
+            )
+            
+            do {
+                try fetchController.performFetch()
+                if let fetchedObjects = fetchController.fetchedObjects {
+                    points = fetchedObjects
+                }
+            } catch {
+                print(error)
+            }
+        }
+        
+        return points
+    }
 }
