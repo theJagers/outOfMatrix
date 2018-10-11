@@ -10,7 +10,7 @@ import UIKit
 
 class ViewControllerNewGoal: UIViewController {
 
-    var interest: String?
+    var interest = "READING"
     
     @IBOutlet weak var cambia: UISegmentedControl!
     @IBOutlet weak var rerollLabel: UILabel!
