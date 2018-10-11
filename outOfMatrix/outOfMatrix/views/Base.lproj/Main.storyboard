@@ -225,6 +225,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QQK-Je-TpD"/>
                     </view>
+                    <connections>
+                        <outlet property="descrizioneApp" destination="0dc-K6-vZW" id="fQ5-VY-CsW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kft-Av-A22" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

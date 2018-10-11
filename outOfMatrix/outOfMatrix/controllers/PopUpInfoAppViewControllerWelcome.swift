@@ -23,6 +23,11 @@ class PopUpInfoAppViewControllerWelcome: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBOutlet weak var descrizioneApp: UILabel!
+
+    //cosa sta scritto nella app
+   // descrizioneApp.text = "bla bla"
+    
     @IBAction func closePopUpInfoApp(_ sender: Any) {
         self.view.removeFromSuperview()
     }
