@@ -19,140 +19,116 @@ class ViewControllerNewGoal: UIViewController {
     let roll1 = UIImage(named: "re-roll")    
 
     // Giornaliero
-    var leggereD = ["Leggi una rivista in compagnia", "Leggi un giornale", "Leggi un capitolo di un libro", "Fai un giro in libreria o in biblioteca", "Chiedi ad un amico un consiglio su un libro da leggere", "Chiedi ad un amico un consiglio su un fumetto da leggere", "Consiglia a qualcuno un libro o un fumetto da leggere"]
+    var leggereD = ["Read a magazine with a friend", "Read the journal", "Read a chapter of a book", "Take a ride in a library or in a bookstore", "Ask a device from a friend about a book to read", "Ask a device from a friend about a comic strip to read", "recommended to someone a book or a comic strip to read"]
     var leggereDPt = [300, 100, 50, 50, 20, 10, 75]
     
     // Settimanale
-    var leggereW = ["Leggi una rivista", "Leggi una rivista in compagnia"]
+    var leggereW = ["Read a magazine", "Read a magazine with a friend"]
     var leggereWPt = [800, 300]
     
     // Mensile
-    var leggereM = ["Leggi un libro"]
-    var leggereMPt = [4000]
+    var leggereM = ["Read a book", "Read two little book"]
+    var leggereMPt = [4000, 2000]
     
     // Giornaliero
-    var scrivereD = ["Scrivi una pagina del tuo diario"]
-    var scrivereDPt = [150]
+    var scrivereD = ["Write a page of your personal diray", "Write a summary of a story"]
+    var scrivereDPt = [150, 300]
     
     // Settimanale
-    var scrivereW = ["Scrivi una lettera ad un tuo amico"]
-    var scrivereWPt = [200]
+    var scrivereW = ["Write a letter for a friend", "Write a fantastic story"]
+    var scrivereWPt = [200, 500]
     
     // Mensile
-    var scrivereM = ["Scrivi un libro"]
-    var scrivereMPt = [300]
+    var scrivereM = ["Write a poetry", "Write a lyrics of a song"]
+    var scrivereMPt = [600, 550]
     
     // Giornaliero
-    var cucinareD = ["Cucina un dolce", "Prepara un rustico", "Segui una lezione di cucina", "Prepara un primo piatto", "Prepara un secondo piatto con contorno", "Chiama qualcuno per farti consigliare una ricetta"]
-    var cucinareDPt = [300, 120, 50, 100, 200, 250]
+    var cucinareD = ["Cook a savory pie", "Take part at one cooking class", "Cook a first course", "Cook a second course with a side dish", "Call someone for a device about a course"]
+    var cucinareDPt = [120, 50, 100, 200, 250]
     
     // Settimanale
-    var cucinareW = ["Cucina qualcosa che non hai mai cucinato prima d'ora"]
-    var cucinareWPt = [500]
+    var cucinareW = ["Cook a new thing", "Cook a dessert"]
+    var cucinareWPt = [500, 300]
     
     // Mensile
-    var cucinareM = ["Impara a memoria la ricetta di tre rustici", "Ottieni l'attestato HCCP", "Inventa un nuovo piatto"]
+    var cucinareM = ["Learn the recipe of three savory pies", "Take the HCCP's certificate", "Invent a new course"]
     var cucinareMPt = [500, 1000, 2000]
     
     // Giornaliero
-    var suonareD = ["Suona/canta in compagnia", "Esercitati a suonare il tuo strumento musicale preferito"]
+    var suonareD = ["Sing/play with a company", "Learn to play your favourite music instrument"]
     var suonareDPt = [200, 200]
     
     // Settimanale
-    var suonareW = ["Impara una nuova canzone", "Segui una lezione di musica", ]
+    var suonareW = ["Learn a new song", "Take a part on a music class"]
     var suonareWPt = [600, 100]
     
     // Mensile
-    var suonareM = ["Impara una nuova canzone", "Mostra i tuoi progressi nel suonare il tuo strumento musicale ai tuoi amici/parenti", "Forma una band", "Scrivi un testo", "Scrivi uno spartito"]
+    var suonareM = ["Learn a new song", "Mostra i tuoi progressi nel suonare il tuo strumento musicale ai tuoi amici/parenti", "Forma una band", "Scrivi un testo", "Scrivi uno spartito"]
     var suonareMPt = [500, 200, 400, 550, 550]
     
     // Giornaliero
     var acoltareD = ["Compra un CD", "Chiedi consiglio su una canzi"]
-    var ascoltareDPt = [30]
+    var ascoltareDPt = [30, 40]
     
     // Settimanale
-    var ascoltareW = [""]
-    var ascoltareWPt = [1]
+    var ascoltareW = ["Ascolta un CD che non ascoltavi da tempo"]
+    var ascoltareWPt = [100]
     
     // Mensile
-    var ascoltareM = [""]
-    var ascoltareMPt = [1]
+    var ascoltareM = ["Vai ad un concerto", "segui un tour"]
+    var ascoltareMPt = [300, 2000]
     
     // Giornaliero
-    var fare_sportD = [""]
-    var fare_sportDPt = [1]
+    var fare_sportD = ["Iscriviti ad un'attività sportiva", "Fai mezz'ora di sport", "Prova una disciplina marziale"]
+    var fare_sportDPt = [120, 50, 100]
     
     // Settimanale
-    var fare_sportW = [""]
-    var fare_sportWPt = [1]
+    var fare_sportW = ["Fai sport per un'intera settimana", "Partecipa ad una gara", "Corri per 1 km"]
+    var fare_sportWPt = [400, 500, 600]
     
     // Mensile
-    var fare_sportM = [""]
-    var fare_sportMPt = [1]
+    var fare_sportM = ["Partecipa ad una maratona", "Vai in un parkour-park"]
+    var fare_sportMPt = [750, 500]
     
     // Giornaliero
-    var guardare_sportD = [""]
-    var guardare_sportDPt = [1]
+    var guardare_sportD = ["Vai ad una partita di calcetto", "Guarda una lezione di qualsiasi sport"]
+    var guardare_sportDPt = [200, 100]
     
     // Settimanale
-    var guardare_sportW = [""]
-    var guardare_sportWPt = [1]
+    var guardare_sportW = ["Vai allo stadio", "Vai ad un incontro"]
+    var guardare_sportWPt = [50, 100]
     
     // Mensile
-    var guardare_sportM = [""]
-    var guardare_sportMPt = [1]
+    var guardare_sportM = ["Vai ad un circuito per vedere una gara di moto gp", "Vai ad un circuito per vedere una gara di formula uno", "Vai ad un circuito per vedere una gara di rally"]
+    var guardare_sportMPt = [600, 600, 1000]
     
     // Giornaliero
-    var animaliD = [""]
-    var animaliDPt = [1]
+    var animaliD = ["Dai da mangiare ad un animale abbandonato", "Fai un giro con il tuo animale", "Gioca con il tuo animale", "Coccola il tuo animale"]
+    var animaliDPt = [40, 30, 75, 80]
     
     // Settimanale
-    var animaliW = [""]
-    var animaliWPt = [1]
+    var animaliW = ["Vai in una associazione per gli animali", "Prenditi cuna di un animale abbandonato", "Cerca una casa ad un animale abbandonato"]
+    var animaliWPt = [400, 500, 1000]
     
     // Mensile
-    var animaliM = [""]
-    var animaliMPt = [1]
+    var animaliM = ["Iscriviti ad una associazione", "Aiuta le associazioni a togliere animali dalla strada"]
+    var animaliMPt = [2000, 2500]
     
     // Giornaliero
-    var teatroD = [""]
-    var teatroDPt = [1]
+    var teatroD = ["Vai ad una lezione teatrale", "Visita una scuola di teatro", "Fai una prova in una scuola di teatro"]
+    var teatroDPt = [50, 75, 100]
     
     // Settimanale
-    var teatroW = [""]
-    var teatroWPt = [1]
+    var teatroW = ["Iscriviti in una scuola teatrale", "Leggi il copione di un'opera"]
+    var teatroWPt = [250, 100]
     
     // Mensile
-    var teatroM = [""]
-    var teatroMPt = [1]
+    var teatroM = ["Vai ad una rappresentazione teatrale", "Guarda un'opera teatrale"]
+    var teatroMPt = [100, 500]
     
     // Giornaliero
-    var recitareD = [""]
-    var recitareDPt = [1]
-    
-    // Settimanale
-    var recitareW = [""]
-    var recitareWPt = [1]
-    
-    // Mensile
-    var recitareM = [""]
-    var recitareMPt = [1]
-    
-    // Giornaliero
-    var cinemaD = [""]
-    var cinemaDPt = [1]
-    
-    // Settimanale
-    var cinemaW = [""]
-    var cinemaWPt = [1]
-    
-    // Mensile
-    var cinemaM = [""]
-    var cinemaMPt = [1]
-    
-    // Giornaliero
-    var naturaD = [""]
-    var naturaDPt = [1]
+    var naturaD = ["Passa un giorno all'aria aperta", "Vai in montagna/ al mare"]
+    var naturaDPt = [100, 200]
     
     // Settimanale
     var naturaW = [""]
@@ -162,7 +138,7 @@ class ViewControllerNewGoal: UIViewController {
     var naturaM = [""]
     var naturaMPt = [1]
     
-    // Giornaliero
+/*    // Giornaliero
     var benessereD = [""]
     var benessereDPt = [1]
     
@@ -180,7 +156,7 @@ class ViewControllerNewGoal: UIViewController {
     
     // Settimanale
     var socializzareW = [""]
-    var socializzareWPt = [1]
+    var socializzareWPt = [1] */
     
     // Mensile
     var socializzareM = [""]
@@ -210,7 +186,7 @@ class ViewControllerNewGoal: UIViewController {
     var tecnologiaM = [""]
     var tecnologiaMPt = [1]
     
-    // Giornaliero
+/*    // Giornaliero
     var spiritualitàD = [""]
     var spiritualitàDPt = [1]
     
@@ -220,7 +196,7 @@ class ViewControllerNewGoal: UIViewController {
     
     // Mensile
     var spiritualitàM = [""]
-    var spiritualitàMPt = [1]
+    var spiritualitàMPt = [1] */
     
     // Giornaliero
     var viaggiareD = [""]
